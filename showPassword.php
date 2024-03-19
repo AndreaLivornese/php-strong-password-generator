@@ -1,29 +1,8 @@
 <?php 
 
-$length = $_GET['pass-length'];
-
-
-
-include "./function.php";
-
 session_start();
 
-
-
-
-if(isset($_GET['pass-length'])){
-    
-    $_SESSION['password'] = passGenerator($length);
-
-    var_dump( $_SESSION['password']);
-    
-    
-    header("Location: ./showPassword.php");
-   
-}
-
-
-
+$pass = $_SESSION['password'];
 
 
 ?>
@@ -47,16 +26,19 @@ if(isset($_GET['pass-length'])){
 
     <div class="col-4">
 
-
-    <form action="index.php" class="mb-5">
-        <div class="mb-3">
-            <label for="pass-length" class="form-label">Inserisci la lunghezza della password</label>
-            <input type="number" class="form-control" id="pass-length" name="pass-length">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-   
+    
+    <?php 
+    
+        echo '<h2 class="text-center mb-4">Ecco qui la tua password generata</h2>';
+        
+        echo '<div class="bg-success p-4 rounded rounded-3 text-center text-warning fw-bold ">';
+    
+        echo $pass.'
+    
+        </div>';
+ 
+    ?>
+    
     </div>
 
 </div>
